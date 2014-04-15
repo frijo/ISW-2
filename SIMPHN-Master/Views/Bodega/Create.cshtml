@@ -1,0 +1,61 @@
+﻿@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Crud.cshtml";
+}  
+
+<script type="text/javascript"
+    src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".panel").slideToggle("slow");
+        });
+    </script>
+    <style type="text/css">
+
+    div.panel,p.flip {
+        padding: 5px;
+        background-color: rgba(7, 3, 3, 0.27);
+        border: solid 1px #808080;
+        width:60%;
+        height: auto;
+        display: none;
+        position: absolute;
+        top: 50%; 
+        left: 50%; 
+        margin-top: -220px; 
+        margin-left: -400px; 
+        color: black;
+    }
+
+    </style>
+ @Styles.Render("~/Content/bootstrap.min.css", "~/Content/bootstrap.min.css")
+@using (Html.BeginForm()) {
+     <div class="panel">
+         <h1 style="text-align: center";>Crear Bodega</h1>
+         <hr>
+        <div class="editor-label">
+            <label>Nombre</label>
+        </div>
+        <div class="editor-field">
+            <input name="nombre" required/>
+        </div>
+        <div class="editor-label">
+            <label>Dirección</label>
+        </div>
+        <div class="editor-field">
+            <input name="direccion" required/>
+        </div>
+        <div class="editor-label">
+            <label>Teléfono</label>
+        </div>
+        <div class="editor-field">
+            <input name="telefono" required/>
+        </div>
+         <br>
+        <p>
+            <input class='btn btn-success btn-xs ' type="submit" value="Crear Bodega"/> |
+        @Html.ActionLink("Volver a la lista", "Index")
+        </p>
+
+        </div>
+}

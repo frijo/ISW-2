@@ -1,0 +1,71 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<link rel="shortcut icon" href="Content/images/image.ico" class="img-rounded" type="image/x-icon"/> 
+<link type="text/css" rel="stylesheet" href="~/Content/menu.css" />
+<script type="text/javascript"
+    src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".panel").slideToggle("slow");
+        });
+    </script>
+ 
+    <style type="text/css">
+    div.panel,p.flip {
+        padding: 5px;
+        background-image: url('http://4.bp.blogspot.com/_oJpV6yalpOk/TTLRKm-pdzI/AAAAAAAACiU/jo7CkZd1xuk/s1600/The-best-top-desktop-hd-dark-black-wallpapers-dark-black-wallpaper-dark-background-dark-wallpaper-23.jpg'); 
+        border: solid 1px #fff;
+        width:60%;
+        height: auto;
+        display: none;
+        position: absolute;
+        top: 50%; 
+        left: 50%; 
+        margin-top: -220px; 
+        margin-left: -400px; 
+        color: white;
+    }
+
+    </style>
+ @Styles.Render("~/Content/bootstrap.min.css", "~/Content/bootstrap.min.css")
+@using (Html.BeginForm()) {
+          <fieldset>
+          <legend>Contact</legend>    
+            <div class="panel" style="text-align: left";>
+                  <br>
+                  <form role="form">
+                      <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Write your name" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Write a subject" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" class="form-control" id="subject" name="subject" placeholder="Write a subject" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea name="message" id="message" class="form-control" rows="5" required></textarea>
+                        </div>
+                      <br>
+                      <p>
+                          <input style="background:#151515" class="btn pull-right" type="submit" value="Send email" />
+                      </p>
+                </form>
+            </div>
+          <br>
+          </fieldset>
+}
+
+<script src="~/Scripts/jquery.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#Usuario').removeClass("active");
+        $('#Usuario').addClass("Usuario");
+    });
+</script>
+

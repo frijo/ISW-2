@@ -1,0 +1,72 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<link rel="shortcut icon" href="Content/images/image.ico" class="img-rounded" type="image/x-icon"/> 
+<link type="text/css" rel="stylesheet" href="~/Content/menu.css" />
+<script type="text/javascript"
+    src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".panel").slideToggle("slow");
+        });
+    </script>
+ 
+    <style type="text/css">
+        div.panel,p.flip {
+            padding: 5px;
+            background-color: rgba(7, 3, 3, 0.27);
+            border: solid 1px #808080;
+            width:60%;
+            height: auto;
+            display: none;
+            position: absolute;
+            top: 50%; 
+            left: 50%; 
+            margin-top: -220px; 
+            margin-left: -400px; 
+            color: black;
+        }
+    </style>
+
+ @Styles.Render("~/Content/bootstrap.min.css", "~/Content/bootstrap.min.css")
+@using (Html.BeginForm()) {
+           
+    <div class="panel" style="text-align: center";>
+    <h1 style="color: rgba(5, 130, 7, 0.92);">Productos</h1>
+    <hr>
+    <div class="container">
+    <div class="row col-md-6 col-md-offset-2 custyle">
+    <table class="table table-striped custab">
+    <thead>
+     <a style="margin-left:-175px" class='btn btn-success btn-xs pull-left' href="/Producto/Create"><span class="glyphicon glyphicon-plus"></span> Crear Producto</a>
+        <br>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Costo</th>
+            <th class="text-center">Acciones</th>
+        </tr>
+    </thead>
+        @foreach (var item in ViewBag.productos)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Nombre</td>
+                <td>@item.Costo</td>
+                <td class="text-center"><a class='btn btn-warning btn-xs' href="/Producto/Edit/@item.Id"><span class="glyphicon glyphicon-edit"></span> Modificar</a> <a href="/Producto/Delete/@item.Id" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Eliminar</a></td>
+                
+            </tr>
+        }
+    </table>
+    </div>
+</div>
+        </div>
+}
+
+<script src="~/Scripts/jquery.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#Producto').removeClass("active");
+        $('#Producto').addClass("Producto");
+    });
+</script>

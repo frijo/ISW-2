@@ -1,0 +1,92 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<link rel="shortcut icon" href="Content/images/image.ico" class="img-rounded" type="image/x-icon"/> 
+<link type="text/css" rel="stylesheet" href="~/Content/menu.css" />
+<script type="text/javascript"
+    src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".panel").slideToggle("slow");
+        });
+    </script>
+ 
+    <style type="text/css">
+        .custab{
+                border: 1px solid #ccc;
+                padding: 1px;
+                margin: 1%;
+                margin-left: -80px; 
+                }
+  
+.custab:hover{
+    }
+    div.panel,p.flip {
+        padding: 5px;
+        background-color: rgba(7, 3, 3, 0.27);
+        border: solid 1px #808080;
+        width:60%;
+        height: auto;
+        display: none;
+        position: absolute;
+        top: 50%; 
+        left: 50%; 
+        margin-top: -220px; 
+        margin-left: -400px; 
+        color: black;
+    }
+
+    </style>
+ @Styles.Render("~/Content/bootstrap.min.css", "~/Content/bootstrap.min.css")
+@using (Html.BeginForm()) {
+           
+    <div class="panel" style="text-align: center";>
+    <h1 style="color: rgba(5, 130, 7, 0.92);">Despacho</h1>
+    <hr>
+    <div class="container">
+    <div class="row col-md-6 col-md-offset-2 custyle">
+    <table class="table table-striped custab">
+    <thead>
+    <a href="/Despacho/Create" class="btn btn-success btn-xs pull-left"  style="margin-left:-175px"> Crear Despacho</a>
+        <br>
+        <tr>
+            <th>ID</th>
+            <th>ID Bodega</th>
+            <th>ID Producto</th>
+            <th>ID Proveedor</th>
+            <th>ID Usuario</th>
+            <th>Fecha Despacho</th>
+            <th>Cantidad</th>
+            <th>Total</th>
+            @*<th class="text-center">Acciones</th>*@
+        </tr>
+    </thead>
+        @foreach (var item in ViewBag.despacho)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.IdBodega</td>
+                <td>@item.IdProducto </td>
+                <td>@item.IdProveedor </td>
+                <td>@item.IdUsuario </td>
+                <td>@item.FechaDespacho </td>
+                <td>@item.Cantidad </td>
+                <td>@item.Total</td>
+                @*<td class="text-center"><a class='btn btn-warning btn-xs' href="/Despacho/Edit/@item.Id"><span class="glyphicon glyphicon-edit"></span> Modificar</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Eliminar</a></td>*@
+                
+            </tr>
+        }
+    </table>
+    </div>
+</div>
+        </div>
+}
+
+<script src="~/Scripts/jquery.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#Despacho').removeClass("active");
+        $('#Despacho').addClass("Despacho");
+    });
+</script>
+

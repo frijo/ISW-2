@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>@ViewBag.Title</title>
+    <link rel="shortcut icon" href="Content/timthumb.ico" class="img-rounded" type="image/x-icon"/> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @Styles.Render("~/Content/bootstrapcss")
+    @Styles.Render("~/Content/menucss")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/js/bootstrap") 
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrapjs") 
+</head>  
+<body>
+    @RenderBody()
+       <style type="text/css"> 
+          body{
+                background-image:url('/Content/Raindrops_on_a_Leaf1.png');        
+                background-repeat: repeat; 
+                background-size: auto; 
+                margin: 0 auto;
+              }
+          .flip 
+          {
+              color:rgba(5, 130, 7, 0.92);
+          
+          }
+          .active {
+              background-color:rgba(0, 0, 0, 0.00);
+          }
+    </style>
+  
+
+   <ul class="nav navbar-default navbar-static-top nav-justified navbar-fixed-top navbar-inverse" role="navigation">
+    <li id="Despacho" class="active"><a href="/Despacho/Index" class="flip">Despachos</a></li>
+    <li id="Producto" class="active"><a href="/Producto/Index" class="flip">Productos</a></li>
+    <li id="Proveedor" class="active"><a href="/Proveedor/Index" class="flip">Proveedores</a></li>
+    <li id="Bodega" class="active"><a href="/Bodega/Index" class="flip">Bodegas</a></li>
+    @*<li id="Usuario" class="active"><a href="/Usuario/Index" class="flip">Usuarios</a></li>*@
+    </ul>
+
+    <br />
+    <br />
+    <div style="text-align: right">
+        @if (Request.IsAuthenticated) {
+    <text>
+    <p >¡Hola, @Html.ActionLink(User.Identity.Name, "Manage", "Account", routeValues: null, htmlAttributes: new { @class = "username", title = "Administrar" })! 
+      @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" })) 
+        { 
+            @Html.AntiForgeryToken() <a href="javascript:document.getElementById('logoutForm').submit()">Logout</a>
+        }
+        </p>
+    </text>
+    }
+</div>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

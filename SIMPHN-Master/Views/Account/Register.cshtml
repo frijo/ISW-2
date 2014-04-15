@@ -1,0 +1,56 @@
+﻿@model SIMPHN_Master.Models.RegisterModel
+@{
+    ViewBag.Title = "Registrarse";
+    Layout = "~/Views/Shared/Layout_Login.cshtml";
+}
+<style>
+      body {
+      
+        background-color: #808080;
+    }
+    .fieldset {
+        color: #fff;
+    }
+</style>
+
+<div class="panel">
+    <br />
+    <h1 style="text-align:center;">
+        @ViewBag.Title.
+    </h1>
+    <h2>Cree una cuenta nueva.</h2>
+    <br />
+</div>
+<div class="row">
+    <div class="col-md-4 col-md-offset-4">
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary()
+
+            <fieldset>
+                <legend class="fieldset">Formulario de registro</legend>
+               
+                <div class="form-group">
+                    @Html.LabelFor(m => m.UserName)
+                    <input  data-val="true" data-val-required="El campo Nombre de usuario es obligatorio." data-val-color="red" type="text" name="UserName" id="UserName" class="form-control input-lg" placeholder="Username" style="color: red;" >
+                </div>
+                <div class="form-group">
+                     @Html.LabelFor(m => m.Password)
+                    <input data-val="true" data-val-required="El campo Contraseña es obligatorio." data-val-length-max="100" data-val-length-min="6" type="password" name="Password" id="Password" class="form-control input-lg" placeholder="Contraseña">
+                </div>
+                <div class="form-group">
+                     @Html.LabelFor(m => m.ConfirmPassword)
+                    <input data-val="true" data-val-required="El campo Confirmar Contraseña es obligatorio." data-val-equalto-other="*.Password" type="password" name="ConfirmPassword" id="ConfirmPassword" class="form-control input-lg" placeholder="Confirmar Contraseña">
+                </div>
+              
+		        <div class="form-group">
+	                <input type="submit" class="btn btn-lg btn-success btn-block" value="Registrarse">
+		        </div>
+            </fieldset>
+        }
+    </div>
+
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

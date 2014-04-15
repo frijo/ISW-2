@@ -1,0 +1,28 @@
+.Despacho {
+    background-color: rgba(255, 255, 255, 0.17);
+}
+.Producto {
+    background-color: rgba(255, 255, 255, 0.17);
+}
+.Bodega {
+    background-color: rgba(255, 255, 255, 0.17);
+}
+.Usuario {
+    background-color: rgba(255, 255, 255, 0.17);
+}
+.Proveedor {
+    background-color: rgba(255, 255, 255, 0.17);
+}
+
+#SelcIDUsuario {
+    width: 120px;
+}
+#SelcIDBodega {
+    width: 120px;
+}
+#SelcIDProducto {
+    width: 120px;
+}
+#SelcIDProveedor {
+    width: 120px;
+}
